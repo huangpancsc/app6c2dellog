@@ -288,4 +288,6 @@ def uploaded_file(filename):
 if __name__ == '__main__':
     os.makedirs(UPLOAD_FOLDER, exist_ok=True)
     logger.info("應用程式啟動")
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))  # 從環境變數讀取 PORT，預設為 5000
+    app.run(host="0.0.0.0", port=port, debug=True)
+    #app.run(debug=True)
